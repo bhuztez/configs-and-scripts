@@ -1,0 +1,3 @@
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{= bW}%n %t %{.yb} %m-%d %c %{.bW} %W %= %{..y} %L"
