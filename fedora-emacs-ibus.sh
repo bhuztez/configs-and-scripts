@@ -30,7 +30,16 @@ EOF
 
 cat << EOF >> ~/.emacs
 ;;; ibus integration
+(defun toggle-ibus (&optional engine-name)
+  (interactive)
+  (when (and (interactive-p)
+	     (null ibus-current-buffer))
+    (ibus-check-current-buffer))
+  (if (equal ibus-imcontext-status engine-name)
+      (ibus-disable)
+    (ibus-enable engine-name)))
+
 (ibus-define-common-key ?\C-\s nil)
-(global-set-key (kbd "C-\\") 'ibus-toggle)
+(global-set-key (kbd "C-\\") (lambda () (interactive) (toggle-ibus "pinyin")))
 EOF
 
