@@ -63,3 +63,5 @@
 (ibus-define-common-key ?\C-\s nil)
 
 (global-set-key (kbd "C-\\") (lambda () (interactive) (ibus-toggle-engine "pinyin")))
+
+(add-hook 'after-init-hook 'ibus-mode-on)
